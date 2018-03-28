@@ -3790,17 +3790,6 @@ Strophe.Connection.prototype = {
                 xmlns: Strophe.NS.SASL,
                 mechanism: this._sasl_mechanism.name
             });
-            var objectCredentials = {};
-            objectCredentials["client_id"] = "apiUser";
-            objectCredentials["client_secret"] = "apiPass";
-            objectCredentials["app_name"] = "appName";
-             objectCredentials["app_version"] = "appVersion";
-             objectCredentials["os_name"] = "osName";
-             objectCredentials["os_version"] = "osVersion";
-             objectCredentials["device_type"] = "deviceType";
-             objectCredentials["device_model"] = "deviceModel";
-             objectCredentials["installation_id"] = "installId";
-            request_auth_exchange.attrs({'jsonCredentials' : JSON.stringify(objectCredentials)});
             if (this._sasl_mechanism.isClientFirst) {
                 var response = this._sasl_mechanism.onChallenge(this, null);
                 request_auth_exchange.t(btoa(response));
